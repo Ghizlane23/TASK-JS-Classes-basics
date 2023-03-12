@@ -4,6 +4,7 @@
  * - lastName: String
  * - gender: String
  * - birthYear: Number
+
  *
  * 2. Add the constructor that initializes all properties
  *
@@ -21,7 +22,32 @@
  */
 class Person {
   // continue the code here
+
+  constructor(firstName,lastName,gender,birthYear){
+    this.firstName=firstName
+    this.lastName=lastName
+    this.gender=gender
+    this.birthYear=birthYear
+  }
+  print(){
+    console.log(`${this.firstName } ${this.lastName}`)
+  }
+  calculateAge(currentYear){
+    const personAge=currentYear-this.birthYear
+    return personAge
+  }
+
 }
+
+const person1=new Person("fisrt1","last1","female",2001)
+person1.print()
+console.log(person1.calculateAge(2023))
+const person2=new Person("fisrt2","last2","female",2002)
+person2.print()
+console.log(person2.calculateAge(2023))
+const person3=new Person("fisrt3","last3","female",2003)
+person3.print()
+console.log(person3.calculateAge(2023))
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
@@ -46,6 +72,25 @@ class Person {
 
 class Movie {
   // continue the code here
+  rating=[]
+constructor(title,duration,genre,rating){
+  this.title="title"
+  this.duration=duration
+  this.genre="genre"
+  
+}
+
+rate(rating){
+  if(rating>=0 && rating<=10){
+    this.rating.push(rating)
+  }
+
+}
+averageRating(){
+const total=rating.reduce((accu,cur)=>{ return accu+cur},0)
+const average=total/this.rating.length
+return average
+}
 }
 
 /** (Question 3): (1000 Points)
@@ -58,3 +103,15 @@ class Movie {
  */
 
 // write the class here
+
+class Actor extends Person{
+  movies=[]
+  constructor(firstName,lastName,gender,birthYear){
+    super(firstName,lastName,gender,birthYear)
+  }
+  addMovie(movie){
+    this.addMovie.push(movie)
+  }
+
+
+}
